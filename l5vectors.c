@@ -1,3 +1,10 @@
+/*************************
+* @author Joey H
+* @file l5vectors.c
+* @date 10/6/2026
+* update: added git access
+*************************/
+
 #include <stdio.h>
 #include <string.h>
 
