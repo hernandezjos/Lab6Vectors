@@ -12,7 +12,7 @@
 
 // method to print vectors
 void printVec(Vec vec) {
-    printf("%c = %f  %f  %f\n",
+    printf("%c = %.2f  %.2f  %.2f\n",
            vec.name, vec.ValX, vec.ValY, vec.ValZ);
 }
 
@@ -77,7 +77,6 @@ int checkSign(const char *left, const char *op, const char *right, Vec *answer) 
     }
     // scalar multiplication
     else if (strcmp(op, "*") == 0) {
-        // vector * number
         if (validName(left) && readNumber(right, &coeff)) {
             if (!readStored(left, &vecA)) {
                 return 0;
@@ -85,7 +84,6 @@ int checkSign(const char *left, const char *op, const char *right, Vec *answer) 
             *answer = vecMult(vecA, coeff);
             return 1;
         }
-        // number * vector
         else if (readNumber(left, &coeff) && validName(right)) {
             if (!readStored(right, &vecA)) {
                 return 0;
@@ -183,7 +181,7 @@ void interface(void) {
                  strcmp(token[1], "-") == 0 ||
                  strcmp(token[1], "*") == 0)) {
             if (checkSign(token[0], token[1], token[2], &answer)) {
-                printf("ans = %f  %f  %f\n",
+                printf("ans = %.2f  %.2f  %.2f\n",
                 answer.ValX, answer.ValY, answer.ValZ);
             }
         }
